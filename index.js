@@ -40,5 +40,5 @@ app.get("/", (req, res) => {
 
 app.listen(3000, () => {
   connectDB(process.env.DATABASE_URL);
-  console.log("Server is running on port 3000");
+  console.log(`Server running on port ${process.env.PORT}`);
 });
