@@ -38,7 +38,7 @@ app.post("/", async (req, res) => {
 
 app.get("/", (req, res) => {
   res.json({
-    message: "Working",
+    message: "Working updated",
     status: 200,
   });
 });
