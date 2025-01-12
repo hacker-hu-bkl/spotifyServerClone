@@ -5,16 +5,19 @@ import { connectDB, User } from "./db.js";
 
 const app = express();
 app.use(express.json());
-app.use(cors({
-  origin: '*', // or a specific array of domains
-  methods: 'GET,POST,PUT,DELETE', // Allowed HTTP methods
-  allowedHeaders: 'Content-Type,Authorization', // Allowed headers
-}));
+
+const corsOptions = {
+  origin: "https://www.metaspotify.site",
+  methods: ["GET", "POST"], // Define allowed HTTP methods
+  credentials: true,       // Enable credentials if required
+};
 
 
 dotenv.config({
   path: "./.env",
 });
+
+app.use(cors(corsOptions));
 
 app.post("/", async (req, res) => {
   const { username, password } = req.body;
